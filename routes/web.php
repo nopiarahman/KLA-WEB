@@ -10,9 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\berita;
 Route::get('/', function () {	
-    return view('index');
+    $berita=berita::all()->take(3);
+    // dd($berita);
+    return view('index',compact('berita'));
 
 
 });
@@ -37,7 +39,10 @@ Route::group(['middleware' => ['web','auth']], function()
 
 
     //berita
-    route::get('berita','BeritaController@index');
+    route::get('berita','BeritaController@index')->name('berita');
+    route::get('tambahBerita','BeritaController@create');
+    route::post('beritaSimpan','BeritaController@simpan');
+    route::get('hapusBerita/{id}','BeritaController@destroy');
     //Profil
 
     Route::get('profil','ProfilController@index');
