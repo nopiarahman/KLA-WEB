@@ -1,0 +1,7 @@
+admin 
+email : admin@gmail.com
+pass  : admin1
+
+sekdes
+email : sekdes@gmail.com
+pass  : sekdes1

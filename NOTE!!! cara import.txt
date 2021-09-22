@@ -1,0 +1,14 @@
+Untuk mengimport data copy file dari 'grid_agtkeluarga'
+masukkan ke dalam 'penduduks', sesuaikan urutan formatnya.
+perhatikan jangan ada nik yang sama karena akan terjadi kegagalan import.
+
+----------------------------------------------------------------------------
+
+untuk import data penduduk dan memasukkan database buka "localhost/phpmyadmin"
+masukan database yang tersedia di dalam fie program ini 'db-kla.sql'.
+buka table 'penduduks', pilih import.
+choose file 'penduduks(excel)'
+pada "partial import" naikkan angka "0" menjadi "1" yang berada di "skip this 
+number of queries (for SQL) starting from first one.
+pada "format-specific options" rubah coloumn separated with (,) menjadi (;).
+lalu klik go. tunggu sampai proses selesai.
