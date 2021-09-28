@@ -67,6 +67,10 @@ Route::group(['middleware' => ['web','auth']], function()
     //KartuKeluarga
 
     Route::get('kk','KkController@index');
+    Route::get('tambahKK','KkController@create');
+    Route::post('kk/simpan','KkController@simpan');
+    Route::get('tambahAnggota','KkController@tambahAnggota');
+    
      
     //Surat Keterangan Biasa
 

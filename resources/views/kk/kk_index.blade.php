@@ -2,34 +2,49 @@
 @section('page')
 <div class="container">
     <div class="row justify-content-center">
+        <div class="row">
+            <div class="col-12">
+              @if (session('status'))
+                <div class="alert alert-success alert-dismissible show fade">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  {{session ('status')}}
+                </div>
+              @endif
+            </div>
+          </div>
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">DATA {{ $judul }}</div>
+                <div class="card-header">Data Kartu Keluarga</div>
                 <div class="card-body">
-        <table class="table table-hover table-striped table-bordered">
+                    <a style="float:right;" href="{{  url('/tambahKK') }}" class="btn btn-primary"><font size="2">TAMBAH DATA</font></a>
+
+        <table class="table table-sm table-hover table-striped table-bordered">
                     <thead class="text-center">
                         <tr>
                             
                             <th>NO. KK</th>
-                            <th>Nama</th>
-                            <th>Status Hubungan</th>
-                            <th>URUTAN KELUARGA</th>
+                            <th>Nama Kepala</th>
+                            <th>Alamat</th>
+                            <th>RT</th>
+                            <th>Aksi    </th>
                         </tr>
                     </thead>
         <tbody>
-           @foreach ($penduduks as $penduduk)
+           @foreach ($kk as $isiKK)
             <tr>
-            <td>{{ $penduduk->kode_keluarga }}</td>
-                    <td>{{ $penduduk->nm_anggota_keluarga }}</td>
-                    <td>{{ $penduduk->hubungan }}</td>
-                    <td><center>{{ $penduduk->no_urut_keluarga }}</center></td>
+            <td>{{ $isiKK->nomorKK }}</td>
+                    <td>{{ $isiKK->namaKepala }}</td>
+                    <td>{{ $isiKK->alamat }}</td>
+                    <td>{{ $isiKK->rt }}</td>
+                    <td><a href="/tambahAnggota/{{$isiKK->id}}" class="btn btn-sm btn-white border-success">Anggota Keluarga</a></td>
             </tr>
             @endforeach   
- 
                 </tbody>
                 </table>
  
-                {{ $penduduks->links() }}
+                {{ $kk->links() }}
  
                 </div>
             </div>
