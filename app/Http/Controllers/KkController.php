@@ -21,13 +21,27 @@ class KkController extends Controller
     }
     public function simpan(Request $request)
     {
+        // dd($request);
         $validasi = $this->validate($request,[
-            'nomorKK'                     => 'required',
-            'namaKepala'                     => 'required',
+            'noKK'                     => 'required',
             'alamat'                  => 'required',
             'rt'                  => 'required',
+            'rw'                  => 'required',
+            'kelurahan'                  => 'required',
+            'kecamatan'                  => 'required',
+            'kabupaten'                  => 'required',
+            'kodePos'                  => 'required',
+            'provinsi'                  => 'required',
             ]);
         \App\kartuKeluarga::create($request->all());
         return redirect('kk')->with('pesan', 'Data berhasil disimpan!');
+    }
+    public function tambahAnggota(kartuKeluarga $id){
+        // dd($id);
+        $data['penduduk']         =  new \App\Penduduk();
+        $data['action']         = 'PendudukController@simpan';        
+        $data['btn_submit']     = 'SIMPAN';
+        $data['method']         = "POST";
+        return view('penduduk/penduduk_form',compact('id'),$data);
     }
 }

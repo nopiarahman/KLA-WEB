@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,7 +60,7 @@ Route::group(['middleware' => ['web','auth']], function()
 
     Route::get('penduduk','PendudukController@index');
     Route::get('tambah','PendudukController@tambah');  
-    Route::post('simpan','PendudukController@simpan');
+    Route::post('simpan/{id}','PendudukController@simpan')->name('pendudukSimpan');
     Route::get('edit/{id}','PendudukController@edit');  
     Route::put('update/{id}','PendudukController@update');
     Route::get('hapus/{id}', 'PendudukController@hapus');
@@ -69,7 +70,7 @@ Route::group(['middleware' => ['web','auth']], function()
     Route::get('kk','KkController@index');
     Route::get('tambahKK','KkController@create');
     Route::post('kk/simpan','KkController@simpan');
-    Route::get('tambahAnggota','KkController@tambahAnggota');
+    Route::get('tambahAnggota/{id}','KkController@tambahAnggota');
     
      
     //Surat Keterangan Biasa

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\kartuKeluarga;
 
 class PendudukController extends Controller
 {
@@ -22,33 +23,28 @@ class PendudukController extends Controller
         return view('penduduk/penduduk_form',$data);
     }
 
-    public function simpan(Request $request)
+    public function simpan(Request $request,kartuKeluarga $id)
     {
+        // dd($id);
         $validasi = $this->validate($request,[
-            'rw'                     => 'required',
-            'rt'                     => 'required',
-            'dusun'                  => 'required',
-            'alamat'                 => 'required',
-            'kode_keluarga'          => 'required',
-            'nm_kpl_keluarga'        => 'required',
-            'no_urut_keluarga'       => 'required',
-            'nik'                    => 'required|unique:penduduks,nik',
-            'nm_anggota_keluarga'    => 'required',
-            'jenis_kelamin'          => 'required',
-            'hubungan'               => 'required',
-            'tpt_lahir'              => 'required',
-            'tgl_lahir'              => 'required',
-            'usia'                   => 'required',
-            'status'                 => 'required',
-            'agama'                  => 'required',
-            'goldarah'               => 'required',
-            'kewarganegaraan'        => 'required',
-            'etnis_suku'             => '',
-            'pendidikan'             => '',
-            'pekerjaan'              => '',
+            'nik'                     => 'required',
+            'nama'                     => 'required',
+            'jenis_kelamin'                  => 'required',
+            'hubungan'                 => 'required',
+            'tempatLahir'          => 'required',
+            'goldarah'          => 'required',
+            'tanggalLahir'        => 'required',
+            'status'       => 'required',
+            'agama'                    => 'required|unique:penduduks,nik',
+            'kewarganegaraan'          => 'required',
+            'pendidikan'               => 'required',
+            'pekerjaan'              => 'required',
+            'ayah'              => 'required',
+            'ibu'                   => 'required',
             ]);
-     
-        \App\Penduduk::create($request->all());
+        $requestData = $request->all();
+        $requestData['kartuKeluarga_id']=$id->id;
+        \App\Penduduk::create($requestData);
         if (uniqid()) {
             // code...
         }

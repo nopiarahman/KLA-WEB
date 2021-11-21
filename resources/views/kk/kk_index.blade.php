@@ -34,11 +34,11 @@
         <tbody>
            @foreach ($kk as $isiKK)
             <tr>
-            <td>{{ $isiKK->nomorKK }}</td>
-                    <td>{{ $isiKK->namaKepala }}</td>
-                    <td>{{ $isiKK->alamat }}</td>
-                    <td>{{ $isiKK->rt }}</td>
-                    <td><a href="/tambahAnggota/{{$isiKK->id}}" class="btn btn-sm btn-white border-success">Anggota Keluarga</a></td>
+              <td>{{ $isiKK->noKK }}</td>
+              <td>{{ $isiKK->namaKepala }}</td>
+              <td>{{ $isiKK->alamat }}</td>
+              <td>{{ $isiKK->rt }}</td>
+              <td><a href="/tambahAnggota/{{$isiKK->id}}" class="btn btn-sm btn-white border-success">Anggota Keluarga</a></td>
             </tr>
             @endforeach   
                 </tbody>
