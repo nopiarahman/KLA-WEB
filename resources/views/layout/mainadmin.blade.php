@@ -10,8 +10,10 @@
     <link rel="icon" href="/admin/production/images/muarojambi.png" type="image/ico" />
 
     <title>@yield('titleadmin')</title>
-
+    @yield('head')
     <!-- Bootstrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+
     <link href="/admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="/admin/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -48,7 +50,7 @@
                             <img src="/logo/profil.png" alt="..." class="img-circle profile_img">
                         </div>
                         <div class="profile_info">
-                            <span>Ruangan,</span>
+                            <span>Selamat Datang,</span>
                             <h2>{{ Auth::user()->name }}</h2>
                         </div>
                     </div>
@@ -56,7 +58,7 @@
 
                     <br />
                     @auth
-                        @if (Auth::user()->admin == 0)
+                        @if (Auth::user()->admin == 0 && Auth::user()->role == 'admin')
                     <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section"> 
@@ -101,8 +103,39 @@
                 </div>
                 <!-- /sidebar menu -->
 
-                @elseif (Auth::user()->admin == 1)
+                @elseif (Auth::user()->role == 'penduduk')
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section"> 
+                </li>&nbsp; &nbsp; &nbsp;
 
+
+                        <h3>PENDUDUK</h3>
+                        <ul class="nav side-menu">
+                            <li><a href="/home"><i class="fa fa-home"></i> Home </a>
+                            </li>
+                            <li><a><i class="fa fa-table"></i> Data Diri <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="/sdpenduduk"><i class="fa fa-user"></i> Penduduk </a>
+                                    </li>
+                                    <li><a href="/sdkk"><i class="fa fa-table"></i> Kartu Keluarga </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-table"></i> Permintaan Surat <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="/sdskb"><i class="fa fa-table"></i>Baru</a>
+                                    </li>
+                                    <li><a href="/sdsktm"><i class="fa fa-table"></i>Selesai Diproses </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /sidebar menu -->
+                @elseif (Auth::user()->role == 'sekdes')
                 <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section"> 
@@ -149,7 +182,7 @@
 
 
                  @endif
-                    @endauth
+                @endauth
 
                 <!-- /menu footer buttons 
                <div class="sidebar-footer hidden-small">
@@ -262,7 +295,7 @@
 
     <!-- Custom Theme Scripts -->
     <script src="/admin/build/js/custom.min.js"></script>
-
+    @yield('script')
 </body>
 /adminhtml>
 

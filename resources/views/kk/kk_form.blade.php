@@ -15,6 +15,11 @@
                             <span class="text-danger">{{ $errors->first('rw') }}</span>
                         </div>
                         <div class="form-group">
+                            {{Form::label('namaKepala', 'Nama Kepala Keluarga');}}
+                            {{ Form::text('namaKepala',null,array('class'=>'form-control')) }}
+                            <span class="text-danger">{{ $errors->first('dusun') }}</span>
+                        </div>
+                        <div class="form-group">
                             {{Form::label('alamat', 'Alamat Rumah');}}
                             {{ Form::text('alamat',null,array('class'=>'form-control')) }}
                             <span class="text-danger">{{ $errors->first('dusun') }}</span>

@@ -36,7 +36,7 @@
                         </div>
                         
 
-                        <a style="margin:15px;" class="fa fa-home"  href="{{  url('/penduduk') }}" class="btn btn-link"><font size="2">KEMBALI</font></a>
+                        <a style="margin:15px;" class="fa fa-home"  href="{{  url('/berita') }}" class="btn btn-link"><font size="2">KEMBALI</font></a>
 
                         <button style="float: right" type="submit" class="btn btn-primary">{{ $btn_submit }}</button>
                     {!! Form::close() !!}
@@ -46,12 +46,3 @@
     </div>
 </div>
 @endsection
-
-<!--
-|--------------------------------------------------------------------------
-| @copyrigt BanDotz
-|--------------------------------------------------------------------------
-| app.view
-|--------------------------------------------------------------------------
-|
--->

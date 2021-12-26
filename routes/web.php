@@ -63,7 +63,7 @@ Route::group(['middleware' => ['web','auth']], function()
     Route::post('simpan/{id}','PendudukController@simpan')->name('pendudukSimpan');
     Route::get('edit/{id}','PendudukController@edit');  
     Route::put('update/{id}','PendudukController@update');
-    Route::get('hapus/{id}', 'PendudukController@hapus');
+    Route::delete('hapusKK/{id}', 'KkController@destroy');
 
     //KartuKeluarga
 
@@ -71,8 +71,8 @@ Route::group(['middleware' => ['web','auth']], function()
     Route::get('tambahKK','KkController@create');
     Route::post('kk/simpan','KkController@simpan');
     Route::get('tambahAnggota/{id}','KkController@tambahAnggota');
+    Route::get('anggotaKeluarga/{id}','KkController@anggotaKeluarga')->name('anggotaKeluarga');
     
-     
     //Surat Keterangan Biasa
 
     Route::get('suketb','SuketbiasaController@index');

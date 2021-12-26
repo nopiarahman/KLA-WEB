@@ -12,85 +12,89 @@
                     <div class="form-group">
                         {{Form::label('noKK', 'Nomor KK');}}
                         {{Form::text('noKK',$id->noKK,array('class'=>'form-control','placeholder' => 'RW','disabled')) }}
-                        <span class="text-danger">{{ $errors->first('rw') }}</span>
+                        <span class="text-danger">{{ $errors->first('noKK') }}</span>
+                    </div>
+                    <div class="form-group">
+                        {{Form::label('Kepala Keluarga', 'Nama Kepala Keluarga');}}
+                        {{Form::text('Kepala Keluarga',$id->namaKepala,array('class'=>'form-control','disabled')) }}
                     </div>
                     <div class="form-group">
                         {{Form::label('nik', 'NIK');}}
                         {{Form::text('nik',null,array('class'=>'form-control','autofocus')) }}
-                        <span class="text-danger">{{ $errors->first('rw') }}</span>
+                        <span class="text-danger">{{ $errors->first('nik') }}</span>
                     </div>
                     <div class="form-group">
                         {{Form::label('nama', 'Nama');}}
                         {{Form::text('nama',null,array('class'=>'form-control')) }}
-                        <span class="text-danger">{{ $errors->first('rw') }}</span>
+                        <span class="text-danger">{{ $errors->first('nama') }}</span>
                     </div>
                     <div class="form-group">
-                        {{Form::label('jenis_kelamin', 'jenis_kelamin');}}
+                        {{Form::label('jenis_kelamin', 'Jenis Kelamin');}}
                         {{ Form::radio('jenis_kelamin', 'Laki-Laki', true)}} Laki-Laki
                         {{ Form::radio('jenis_kelamin', 'Perempuan', false)}} Perempuan
-                        <span class="text-danger">{{ $errors->first('rw') }}</span>
+                        <span class="text-danger">{{ $errors->first('jenis_kelamin') }}</span>
                     </div>
                     <div class="form-group">
-                        {{Form::label('tempatLahir', 'tempatLahir');}}
+                        {{Form::label('tempatLahir', 'Tempat Lahir');}}
                         {{Form::text('tempatLahir',null,array('class'=>'form-control')) }}
-                        <span class="text-danger">{{ $errors->first('rw') }}</span>
+                        <span class="text-danger">{{ $errors->first('tempatLahir') }}</span>
                     </div>
                     <div class="form-group">
-                        {{Form::label('tanggalLahir', 'tanggalLahir');}}
-                        {{Form::text('tanggalLahir',null,array('class'=>'form-control')) }}
-                        <span class="text-danger">{{ $errors->first('rw') }}</span>
+                        {{Form::label('tanggalLahir', 'Tanggal Lahir');}}
+                        {{Form::date('tanggalLahir',null,array('class'=>'form-control')) }}
+                        <span class="text-danger">{{ $errors->first('tanggalLahir') }}</span>
                     </div>
                     <div class="form-group">
-                        {{Form::label('agama', 'agama');}}
+                        {{Form::label('agama', 'Agama');}}
                         {{Form::text('agama',null,array('class'=>'form-control')) }}
-                        <span class="text-danger">{{ $errors->first('rw') }}</span>
+                        <span class="text-danger">{{ $errors->first('agama') }}</span>
                     </div>
                     <div class="form-group">
-                        {{Form::label('pendidikan', 'pendidikan');}}
+                        {{Form::label('pendidikan', 'Pendidikan');}}
                         {{Form::text('pendidikan',null,array('class'=>'form-control')) }}
-                        <span class="text-danger">{{ $errors->first('rw') }}</span>
+                        <span class="text-danger">{{ $errors->first('pendidikan') }}</span>
                     </div>
                     <div class="form-group">
-                        {{Form::label('pekerjaan', 'pekerjaan');}}
+                        {{Form::label('pekerjaan', 'Pekerjaan');}}
                         {{Form::text('pekerjaan',null,array('class'=>'form-control')) }}
-                        <span class="text-danger">{{ $errors->first('rw') }}</span>
+                        <span class="text-danger">{{ $errors->first('pekerjaan') }}</span>
                     </div>
                     <div class="form-group">
-                        {{Form::label('goldarah', 'goldarah');}}
+                        {{Form::label('goldarah', 'Gol darah');}}
                         {{ Form::radio('goldarah', 'A', true)}} A
                         {{ Form::radio('goldarah', 'B', false)}} B
                         {{ Form::radio('goldarah', 'AB', false)}} AB
                         {{ Form::radio('goldarah', 'O', false)}} O
-                        <span class="text-danger">{{ $errors->first('rw') }}</span>
+                        <span class="text-danger">{{ $errors->first('goldarah') }}</span>
                     </div>
                     <div class="form-group">
-                        {{Form::label('status', 'status');}}
+                        {{Form::label('status', 'Status Pernikahan');}}
                         {{Form::text('status',null,array('class'=>'form-control')) }}
-                        <span class="text-danger">{{ $errors->first('rw') }}</span>
+                        <span class="text-danger">{{ $errors->first('status') }}</span>
                     </div>
                     <div class="form-group">
-                        {{Form::label('hubungan', 'hubungan');}}
+                        {{Form::label('hubungan', 'Hubungan Dalam Keluarga');}}
                         {{Form::text('hubungan',null,array('class'=>'form-control')) }}
-                        <span class="text-danger">{{ $errors->first('rw') }}</span>
+                        <span class="text-danger">{{ $errors->first('hubungan') }}</span>
                     </div>
                     <div class="form-group">
-                        {{Form::label('kewarganegaraan', 'kewarganegaraan');}}
+                        {{Form::label('kewarganegaraan', 'Kewarganegaraan');}}
                         {{ Form::radio('kewarganegaraan', 'Warga Negara Indonesia', true)}} WNI 
                         {{ Form::radio('kewarganegaraan', 'Warga Negara Asing', false)}} WNA
-                        <span class="text-danger">{{ $errors->first('rw') }}</span>
+                        <span class="text-danger">{{ $errors->first('kewarganegaraan') }}</span>
                     </div>
                     <div class="form-group">
                         {{Form::label('ayah', 'ayah');}}
                         {{Form::text('ayah',null,array('class'=>'form-control')) }}
-                        <span class="text-danger">{{ $errors->first('rw') }}</span>
+                        <span class="text-danger">{{ $errors->first('ayah') }}</span>
                     </div>
                     <div class="form-group">
                         {{Form::label('ibu', 'ibu');}}
                         {{Form::text('ibu',null,array('class'=>'form-control')) }}
-                        <span class="text-danger">{{ $errors->first('rw') }}</span>
+                        <span class="text-danger">{{ $errors->first('ibu') }}</span>
                     </div>
 
-                        <a style="margin:15px;" class="fa fa-home"  href="{{  url('/penduduk') }}" class="btn btn-link"><font size="2">KEMBALI</font></a>
+                        <a style="margin:15px;" class="fa fa-home"  href="{{  url('/anggotaKeluarga',['id'=>$id->id]) }}" class="btn btn-link"><font size="2">KEMBALI</font></a>
 
                         <button style="float: right" type="submit" class="btn btn-primary">{{ $btn_submit }}</button>
                     {!! Form::close() !!}

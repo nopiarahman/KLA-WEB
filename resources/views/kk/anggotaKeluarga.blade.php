@@ -7,14 +7,20 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header" >DATA {{ $judul }}</div>
+                <div class="card-header" >DATA Penduduk</div>
+
                 <div style="margin: 15px;">
-                  <h3 class="text-center">DATA PENDUDUK</h3>
-                <center><font size="2" color="#000" >UNTUK MELIHAT, MENGUBAH, DAN MENGHAPUS DATA INFORMASI LENGKAP PENDUDUK SILAHKAN KLIK INFO DETAIL</font></center>
+                    <center><font size="5" color="#000" >
+                        Anggota Keluarga {{$id->namaKepala}}
+                </font></center>
+                    <center><font size="5" color="#000" >
+                        Nomor Kartu Keluarga {{$id->noKK}}
+                </font></center>
                 </div>
                 
                 <div class="card-body">
-        <table class="table table-hover table-striped " id="table">
+                    <a style="float:right;" href="{{  url('/tambahAnggota',['id'=>$id->id]) }}" class="btn btn-primary mb-4"><font size="2">TAMBAH ANGGOTA KELUARGA</font></a>
+        <table class="table table-hover table-striped" id="table">
                     <thead class="text-center">
                         <tr >
                             <th>NO</th>
@@ -22,7 +28,7 @@
                             <th>Nama</th>
                             <th>Jenis Kelamin</th>
                             <th>Tempat, Tanggal Lahir</th>
-                            <th>Pekerjaan</th>
+                            <th>Hubungan</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -34,8 +40,9 @@
                     <td>{{ $penduduk->nama }}</td>
                     <td>{{ $penduduk->jenis_kelamin }}</td>
                     <td>{{ $penduduk->tempatLahir }}, {{ $penduduk->tanggalLahir }}</td>
-                    <td>{{ $penduduk->pekerjaan }}</td>
-                    <td> <a href="{{ url('edit/'.$penduduk->id) }}" class="btn btn-sm btn-white border-info"><i class="fa fa-pencil-square-o"></i>info detail </a>
+                    <td>{{ $penduduk->hubungan }}</td>
+                    <td> 
+                        <a href="{{ url('edit/'.$penduduk->id) }}" class="btn btn-sm btn-white border-info "><i class="fa fa-pencil-square-o"></i>info detail </a>
                         <button type="button" class="btn btn-sm btn-white text-danger border-danger" 
                         data-toggle="modal" 
                         data-target="#exampleModalCenter" 
@@ -48,51 +55,49 @@
  
                 </tbody>
                 </table>
-
-
-                {{ $penduduks->links() }}
+                <a href="{{url('kk')}}" class="btn btn-secondary"> <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Kembali</a>
  
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Modal Hapus-->
-<div class="modal fade exampleModalCenter" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Hapus Penduduk</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form action="" method="post" id="formHapus">
-            @method('delete')
-            @csrf
-            <p class="modal-text"></p>
+    <!-- Modal Hapus-->
+    <div class="modal fade exampleModalCenter" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Hapus Penduduk</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="" method="post" id="formHapus">
+                @method('delete')
+                @csrf
+                <p class="modal-text"></p>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-danger">Hapus </button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+              </form>
+            </div>
           </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-danger">Hapus </button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-          </form>
         </div>
       </div>
-    </div>
-  </div>
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $('#exampleModalCenter').on('show.bs.modal', function (event) {
-      var button = $(event.relatedTarget) // Button that triggered the modal
-      var id = button.data('id') // Extract info from data-* attributes
-      var nama = button.data('nama') 
-      var modal = $(this)
-      modal.find('.modal-text').text('Yakin ingin menghapus penduduk atas nama ' + nama+' ?')
-      document.getElementById('formHapus').action='/hapus/'+id;
-      })
-    });
-  </script>
+      <script type="text/javascript">
+        $(document).ready(function(){
+          $('#exampleModalCenter').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var id = button.data('id') // Extract info from data-* attributes
+          var nama = button.data('nama') 
+          var modal = $(this)
+          modal.find('.modal-text').text('Yakin ingin menghapus penduduk atas nama ' + nama+' ?')
+          document.getElementById('formHapus').action='/hapus/'+id;
+          })
+        });
+      </script>
 @endsection
 @section('script')
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
