@@ -32,6 +32,16 @@ class PendudukController extends Controller
     {
         try {
             DB::beginTransaction();
+
+            $sandi = Carbon::parse($request->tanggalLahir)->isoFormat('DDMMYY');
+            $requestUser ['name'] = $request->nama;
+            $requestUser ['username'] = $request->nik;
+            $requestUser ['admin'] = 0;
+            $requestUser ['email'] = $request->email;
+            $requestUser ['password'] = Hash::make($sandi);
+            $requestUser ['role'] = 'penduduk';
+            User::create($requestUser);
+            $cekUser = user::where('username',$request->nik)->first();
             $validasi = $this->validate($request,[
                 'nik'                     => 'required',
                 'nama'                     => 'required',
@@ -50,16 +60,10 @@ class PendudukController extends Controller
                 ]);
             $requestData = $request->all();
             $requestData['kartu_keluarga_id']=$id->id;
+            $requestData['user_id']=$cekUser->id;
             // dd($requestData);
-            $sandi = Carbon::parse($request->tanggalLahir)->isoFormat('DDMMYY');
-            $requestUser ['name'] = $request->nama;
-            $requestUser ['admin'] = 0;
-            $requestUser ['email'] = $request->email;
-            $requestUser ['password'] = Hash::make($sandi);
-            $requestUser ['role'] = 'penduduk';
-            \App\Penduduk::create($requestData);
-            User::create($requestUser);
             
+            \App\Penduduk::create($requestData);
             if (uniqid()) {
                 // code...
             }
@@ -112,5 +116,17 @@ class PendudukController extends Controller
         @\Storage::delete($path);
         $penduduk->delete();         
         return redirect()->back()->with('pesan','Data berhasil dihapus!');
+    }
+    public function dataDiri(){
+        $id = Penduduk::where('user_id',auth()->user()->id)->first();
+        $penduduk = $id;
+        // dd($penduduk);
+        return view('penduduk/dataDiri',compact('id','penduduk'));        
+    }
+    public function kartuKeluarga(){
+        $user = Penduduk::where('user_id',auth()->user()->id)->first();
+        $penduduks = Penduduk::where('kartu_keluarga_id',$user->kartu_keluarga_id)->get();
+        $id = kartuKeluarga::find($penduduks->first()->kartu_keluarga_id);
+        return view('penduduk/kartuKeluarga',compact('id','penduduks'));        
     }
 }

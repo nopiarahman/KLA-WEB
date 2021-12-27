@@ -18,4 +18,22 @@ class Penduduk extends Model
     {
         return $this->belongsTo(kartuKeluarga::class);
     }
+    /**
+     * Get the user that owns the Penduduk
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+    /**
+     * Get the pengajuan associated with the Penduduk
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function pengajuan()
+    {
+        return $this->hasOne(pengajuan::class);
+    }
 }

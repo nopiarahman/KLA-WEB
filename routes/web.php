@@ -64,6 +64,7 @@ Route::group(['middleware' => ['web','auth']], function()
     Route::get('edit/{id}','PendudukController@edit');  
     Route::put('update/{id}','PendudukController@update');
     Route::delete('hapusKK/{id}', 'KkController@destroy');
+    
 
     //KartuKeluarga
 
@@ -132,6 +133,11 @@ Route::group(['middleware' => ['web','auth']], function()
     Route::get('sdsku/edit/{id}','SdskuController@edit');
     Route::put('sdsku/update/{id}','SdskuController@update');
    
+    /* Penduduk */
+    Route::get('dataDiri','PendudukController@dataDiri');  
+    Route::get('kartuKeluarga','PendudukController@kartuKeluarga')->name('kartuKeluarga');  
+    Route::get('suratPendudukBaru','PengajuanController@suratPendudukBaru')->name('suratPendudukBaru');  
+    Route::get('suratPendudukSelesai','PengajuanController@suratPendudukSelesai')->name('suratPendudukSelesai');  
 });
 
 

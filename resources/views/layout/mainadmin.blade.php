@@ -114,22 +114,24 @@
                         <ul class="nav side-menu">
                             <li><a href="/home"><i class="fa fa-home"></i> Home </a>
                             </li>
-                            <li><a><i class="fa fa-table"></i> Data Diri <span class="fa fa-chevron-down"></span></a>
+                            <li><a><i class="fa fa-table"></i> Data Penduduk <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/sdpenduduk"><i class="fa fa-user"></i> Penduduk </a>
+                                    <li><a href="/dataDiri"><i class="fa fa-user"></i> Data Diri </a>
                                     </li>
-                                    <li><a href="/sdkk"><i class="fa fa-table"></i> Kartu Keluarga </a>
+                                    <li><a href="{{route('kartuKeluarga')}}"><i class="fa fa-table"></i> Kartu Keluarga </a>
                                     </li>
                                 </ul>
                             </li>
+                            <li><a href="{{route('suratPendudukBaru')}}"> <i class="fa fa-envelope"></i> Pengajuan Surat </a>
+{{-- 
                             <li><a><i class="fa fa-table"></i> Permintaan Surat <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/sdskb"><i class="fa fa-table"></i>Baru</a>
+                                    <li><a href="{{route('suratPendudukBaru')}}"><i class="fa fa-table"></i>Baru</a>
                                     </li>
-                                    <li><a href="/sdsktm"><i class="fa fa-table"></i>Selesai Diproses </a>
+                                    <li><a href="{{route('suratPendudukSelesai')}}"><i class="fa fa-table"></i>Selesai Diproses </a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </div>
