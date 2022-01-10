@@ -23,17 +23,10 @@ class SuketbiasaController extends Controller
     }
     public function simpan(Request $request)
     {
+        // dd($request);
         $validasi = $this->validate($request,[
-            'no'                => 'required',
-            'nama'              => 'required',
-            'tpt_tgl_lhr'       => 'required',
-            'status'            => 'required',
-            'jenkel'            => 'required',
-            'goldar'            => '',
-            'nik'               => 'required|unique:srt_ket_biasas,nik',
-            'agama'             => 'required',
-            'pekerjaan'         => '',
             'tgl_keluar'        => 'required',
+            'penduduk_id'        => 'required',
             ]);
      
         \App\Srt_ket_biasa::create($request->all());

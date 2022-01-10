@@ -34,7 +34,7 @@
         <td><center><b><u>SURAT KETERANGAN</u></b></center></td>
     </tr>
     <tr>
-        <td><center>Nomor :474.4 /{{ $srt_ket_biasas->no }}{{ $srt_ket_biasas->id }}/ KSLA / I / 2020 </center></td>
+        <td><center>Nomor :474.4 /{{ nomorSuratSKB($srt_ket_biasas->id )}}/ KSLA / {{romawi(Carbon\Carbon::parse($srt_ket_biasas->tgl_keluar)->isoFormat('M'))}} / {{Carbon\Carbon::parse($srt_ket_biasas->tgl_keluar)->isoFormat('YYYY')}} </center></td>
     </tr>
     <tr>
         <td height="10"></td>
@@ -52,39 +52,40 @@
 <table align="center">
     <tr>
         <td>Nama</td>
-        <td width="320">: {{ $srt_ket_biasas->nama }}</td>
+        <td width="320">: {{ $srt_ket_biasas->penduduk->nama }}</td>
     </tr>
     <tr>
         <td>Tempat/Tanggal Lahir&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td width="320">: {{ $srt_ket_biasas->tpt_tgl_lhr }}</td>
+        <td width="320">: {{ $srt_ket_biasas->penduduk->tempatLahir }} / {{ $srt_ket_biasas->penduduk->tanggalLahir }}</td>
     </tr>
     <tr>
         <td>Status Perkawinan</td>
-        <td width="320">: {{ $srt_ket_biasas->status }}</td>
+        <td width="320">: {{ $srt_ket_biasas->penduduk->status }}</td>
     </tr>
     <tr>
         <td>Jenis Kelamin</td>
-        <td width="320">: {{ $srt_ket_biasas->jenkel }}</td>
+        <td width="320">: {{ $srt_ket_biasas->penduduk->jenis_kelamin }}</td>
     </tr>
     <tr>
         <td>Golongan Darah</td>
-        <td width="320">: {{ $srt_ket_biasas->goldar }}</td>
+        <td width="320">: {{ $srt_ket_biasas->penduduk->goldarah }}</td>
     </tr>
     <tr>
         <td>Nomor nik</td>
-        <td width="320">: {{ $srt_ket_biasas->nik }}</td>
+        <td width="320">: {{ $srt_ket_biasas->penduduk->nik }}</td>
     </tr>
     <tr>
         <td>Agama</td>
-        <td width="320">: {{ $srt_ket_biasas->agama }}</td>
+        <td width="320">: {{ $srt_ket_biasas->penduduk->agama }}</td>
     </tr>
     <tr>
         <td>Pekerjaan</td>
-        <td width="320">: {{ $srt_ket_biasas->pekerjaan }}</td>
+        <td width="320">: {{ $srt_ket_biasas->penduduk->pekerjaan }}</td>
     </tr>
     <tr>
         <td>Alamat</td>
-        <td width="320">: Rt. {{ $srt_ket_biasas->rt_rw }}.&nbsp;Desa {{ $srt_ket_biasas->alamat }}</td>
+        <td width="320">: Rt. {{ $srt_ket_biasas->penduduk->kartukeluarga->rt }}.&nbsp;Desa {{ $srt_ket_biasas->penduduk->kartukeluarga->kelurahan }}</td>
+        
     </tr>
     <tr>
         <td height="10"></td>
@@ -93,7 +94,7 @@
 <table align="center" >
     <td>
         <font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        Memang benar bahwa yang bersangkutan tercatat sebagai warga masyarakat yang <br> berdomisili di <b>Rt. {{ $srt_ket_biasas->rt_rw }}.</b> Desa Kasang Lopak Alai Kecamatan Kumpeh Ulu Kabupaten Muaro <br> Jambi.</font><br>
+        Memang benar bahwa yang bersangkutan tercatat sebagai warga masyarakat yang <br> berdomisili di <b>Rt. {{ $srt_ket_biasas->penduduk->kartukeluarga->rt }}.</b> Desa Kasang Lopak Alai Kecamatan Kumpeh Ulu Kabupaten Muaro <br> Jambi.</font><br>
         <font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         Demikian Surat Keterangan ini dibuat dengan sebenarnya untuk dapat dipergunakan <br> sebagaimana mestinya.</font>
     </td>

@@ -34,7 +34,7 @@
         <td><center><b><u>SURAT KETERANGAN USAHA</u></b></center></td>
     </tr>
     <tr>
-        <td><center>Nomor : 517 / {{ $srt_ket_usahas->no }}{{ $srt_ket_usahas->id }} / IV / SKU- KSLA / 2021</center></td>
+        <td><center>Nomor : 517 / {{nomorSuratSKU($srt_ket_usahas->id)}}/ {{romawi(Carbon\Carbon::parse($srt_ket_usahas->tgl_keluar)->isoFormat('M'))}} / SKU- KSLA / {{Carbon\Carbon::parse($srt_ket_usahas->tgl_keluar)->isoFormat('YYYY')}}</center></td>
     </tr>
     <tr>
         <td height="10"></td>
@@ -52,35 +52,37 @@
 <table align="center">
     <tr>
         <td>Nama</td>
-        <td width="320">: {{ $srt_ket_usahas->nama }}</td>
+        <td width="320">: {{ $srt_ket_usahas->penduduk->nama }}</td>
     </tr>
     <tr>
         <td>Tempat/Tanggal Lahir&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td width="320">: {{ $srt_ket_usahas->tpt_tgl_lhr }}</td>
+        <td width="320">: {{ $srt_ket_usahas->penduduk->tempatLahir }} / {{$srt_ket_usahas->penduduk->tanggalLahir}}</td>
+
     </tr>
     <tr>
         <td>Jenis Kelamin</td>
-        <td width="320">: {{ $srt_ket_usahas->jenkel }}</td>
+        <td width="320">: {{ $srt_ket_usahas->penduduk->jenis_kelamin }}</td>
+
     </tr>
     <tr>
         <td>Nomor nik</td>
-        <td width="320">: {{ $srt_ket_usahas->nik }}</td>
+        <td width="320">: {{ $srt_ket_usahas->penduduk->nik }}</td>
     </tr>
     <tr>
         <td>Pekerjaan</td>
-        <td width="320">: {{ $srt_ket_usahas->pekerjaan }}</td>
+        <td width="320">: {{ $srt_ket_usahas->penduduk->pekerjaan }}</td>
     </tr>
     <tr>
         <td>Alamat</td>
-        <td width="320">: Rt. {{ $srt_ket_usahas->rt_rw }}. Desa&nbsp;{{ $srt_ket_usahas->desa }}</td>
+        <td width="320">: Rt. {{ $srt_ket_usahas->penduduk->kartukeluarga->rt }}.&nbsp;Desa {{ $srt_ket_usahas->penduduk->kartukeluarga->kelurahan }}</td>
     </tr>
     <tr>
         <td></td>
-        <td width="320">: Kecamatan {{ $srt_ket_usahas->kec }}</td>
+        <td width="320">: Kecamatan {{ $srt_ket_usahas->penduduk->kartukeluarga->kecamatan }}</td>
     </tr>
     <tr>
         <td></td>
-        <td width="320">: Kabupaten {{ $srt_ket_usahas->kab }}</td>
+        <td width="320">: Kabupaten {{ $srt_ket_usahas->penduduk->kartukeluarga->kabupaten }}</td>
     </tr>
     <tr>
         <td height="10"></td>

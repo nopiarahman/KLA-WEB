@@ -36,4 +36,21 @@ class Penduduk extends Model
     {
         return $this->hasOne(pengajuan::class);
     }
+    /**
+     * Get the Srt_ket_tdk_mampu associated with the Penduduk
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function Srt_ket_tdk_mampu()
+    {
+        return $this->hasOne(Srt_ket_tdk_mampu::class);
+    }
+    public function Srt_ket_biasa()
+    {
+        return $this->hasOne(Srt_ket_biasa::class);
+    }
+    public function Srt_ket_usaha()
+    {
+        return $this->hasOne(Srt_ket_usaha::class);
+    }
 }

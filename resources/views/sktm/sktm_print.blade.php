@@ -34,7 +34,7 @@
         <td><center><b><u>SURAT KETERANGAN TIDAK MAMPU</u></b></center></td>
     </tr>
     <tr>
-        <td><center>Nomor : 474.31 /{{ $srt_ket_tdk_mampus->no }}{{ $srt_ket_tdk_mampus->id }} / SKTM-KSLA / V / 2020</center></td>
+        <td><center>Nomor : 474.31 /{{ nomorSuratSKTM($srt_ket_tdk_mampus->id) }}/ SKTM-KSLA / {{romawi(Carbon\Carbon::parse($srt_ket_tdk_mampus->tgl_keluar)->isoFormat('M'))}} / {{Carbon\Carbon::parse($srt_ket_tdk_mampus->tgl_keluar)->isoFormat('YYYY')}}</center></td>
     </tr>
     <tr>
         <td height="10"></td>
@@ -52,35 +52,35 @@
 <table align="center">
     <tr>
         <td>Nama</td>
-        <td width="320">: {{ $srt_ket_tdk_mampus->nama }}</td>
+        <td width="320">: {{ $srt_ket_tdk_mampus->penduduk->nama }}</td>
     </tr>
     <tr>
         <td>Jenis Kelamin</td>
-        <td width="320">: {{ $srt_ket_tdk_mampus->jenkel }}</td>
+        <td width="320">: {{ $srt_ket_tdk_mampus->penduduk->jenis_kelamin }}</td>
     </tr>
     <tr>
         <td>Tempat/Tanggal Lahir&nbsp;&nbsp;&nbsp;&nbsp;</td>
-        <td width="320">: {{ $srt_ket_tdk_mampus->tpt_tgl_lhr }}</td>
+        <td width="320">: {{ $srt_ket_tdk_mampus->penduduk->tempatLahir }} / {{$srt_ket_tdk_mampus->penduduk->tanggalLahir}}</td>
     </tr>
     <tr>
         <td>Status Perkawinan</td>
-        <td width="320">: {{ $srt_ket_tdk_mampus->status }}</td>
+        <td width="320">: {{ $srt_ket_tdk_mampus->penduduk->status }}</td>
     </tr>
     <tr>
         <td>Agama</td>
-        <td width="320">: {{ $srt_ket_tdk_mampus->agama }}</td>
+        <td width="320">: {{ $srt_ket_tdk_mampus->penduduk->agama }}</td>
     </tr>
     <tr>
         <td>Pekerjaan</td>
-        <td width="320">: {{ $srt_ket_tdk_mampus->pekerjaan }}</td>
+        <td width="320">: {{ $srt_ket_tdk_mampus->penduduk->pekerjaan }}</td>
     </tr>
     <tr>
         <td>Alamat</td>
-        <td width="320">: Rt. {{ $srt_ket_tdk_mampus->rt_rw }}.&nbsp;Desa {{ $srt_ket_tdk_mampus->alamat }}</td>
+        <td width="320">: Rt. {{ $srt_ket_tdk_mampus->penduduk->kartukeluarga->rt }}.&nbsp;Desa {{ $srt_ket_tdk_mampus->penduduk->kartukeluarga->kelurahan }}</td>
     </tr>
     <tr>
         <td></td>
-        <td width="320">: Kec. {{ $srt_ket_tdk_mampus->kec }},&nbsp;Kab. {{ $srt_ket_tdk_mampus->kab }}</td>
+        <td width="320">: Kec. {{ $srt_ket_tdk_mampus->penduduk->kartukeluarga->kecamatan }},&nbsp;Kab. {{ $srt_ket_tdk_mampus->penduduk->kartukeluarga->kabupaten }}</td>
     </tr>
     <tr>
         <td height="10"></td>
@@ -115,13 +115,13 @@
 <table align="center" >
     <tr>
         <td>Reg No</td>
-        <td width="250">: {{ $srt_ket_tdk_mampus->no_reg }}</td>
+        <td width="250">: </td>
         <td>DIKELUARKAN DI </td>
-        <td >: {{ $srt_ket_tdk_mampus->desa }}</td>
+        <td >: {{ $srt_ket_tdk_mampus->penduduk->kartukeluarga->kelurahan }}</td>
     </tr>
     <tr>
         <td>Tanggal</td>
-        <td width="250">: {{ $srt_ket_tdk_mampus->tgl_reg }}</td>
+        <td width="250">: </td>
         <td>PADA TANGGAL </td>
         <td >: {{ $srt_ket_tdk_mampus->tgl_keluar }}</td>
     </tr>

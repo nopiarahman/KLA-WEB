@@ -6,6 +6,14 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
+          @if (session('status'))
+                <div class="alert alert-success alert-dismissible show fade">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  {{session ('status')}}
+                </div>
+              @endif
             <div class="card">
                 <div class="card-header" >Pengajuan Surat</div>
 
@@ -29,6 +37,7 @@
                             <th>Jenis Surat</th>
                             <th>Deskripsi</th>
                             <th>Status</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
         <tbody>
@@ -36,11 +45,28 @@
              <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $p->tanggal }}</td>
-                    <td>{{ $p->jenis }}</td>
+                    <td>
+                      @if($p->jenis==="sktm")
+                      Surat Keterangan Tidak Mampu
+                      @elseif($p->jenis==="sku")
+                      Surat Keterangan Usaha
+                      @else
+                      Surat Keterangan Biasa
+                      @endif
+                    </td>
                     <td>{{ $p->deskripsi }}</td>
                     <td>{{ $p->status }}</td>
                     <td> 
-                        <a href="{{ url('edit/'.$p->id) }}" class="btn btn-sm btn-white border-info "><i class="fa fa-pencil-square-o"></i>info detail </a>
+                        {{-- <a href="{{ url('edit/'.$p->id) }}" class="btn btn-sm btn-white border-info "><i class="fa fa-pencil-square-o"></i>info detail </a> --}}
+                        @if($p->status==="diterima")
+                          @if($p->jenis==="sktm")
+                          <a href="{{ url('sktm/cetak/'.cetakSurat($p->id)) }}" class="btn btn-sm btn-success"> <i class="fa fa-print" aria-hidden="true"></i> Cetak Surat</center></a>
+                          @elseif($p->jenis==="sku")
+                          <a href="{{ url('sku/cetak/'.cetakSurat($p->id)) }}" class="btn btn-sm btn-success"> <i class="fa fa-print" aria-hidden="true"></i> Cetak Surat</center></a>
+                          @else
+                          <a href="{{ url('suketb/cetak/'.cetakSurat($p->id)) }}" class="btn btn-sm btn-success"> <i class="fa fa-print" aria-hidden="true"></i> Cetak Surat</center></a>
+                          @endif
+                        @endif
                         <button type="button" class="btn btn-sm btn-white text-danger border-danger" 
                         data-toggle="modal" 
                         data-target="#exampleModalCenter" 
@@ -65,7 +91,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Hapus Penduduk</h5>
+              <h5 class="modal-title" id="exampleModalLongTitle">Hapus Pengajuan</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -92,7 +118,7 @@
           var nama = button.data('nama') 
           var modal = $(this)
           modal.find('.modal-text').text('Yakin ingin menghapus penduduk atas nama ' + nama+' ?')
-          document.getElementById('formHapus').action='/hapus/'+id;
+          document.getElementById('formHapus').action='/hapusPengajuan/'+id;
           })
         });
       </script>

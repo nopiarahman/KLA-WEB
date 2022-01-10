@@ -8,7 +8,7 @@ class SktmController extends Controller
 {
     public function index()
     {
-        $data['srt_ket_tdk_mampus'] = \App\Srt_ket_tdk_mampu::paginate(100);
+        $data['srt_ket_tdk_mampus'] = \App\Srt_ket_tdk_mampu::get();
         $data['judul']  = "SURAT KETERANGAN TIDAK MAMPU";
         return view('sktm/sktm_index',$data);
     }
@@ -23,15 +23,10 @@ class SktmController extends Controller
     }
     public function simpan(Request $request)
     {
+        // dd($request);
         $validasi = $this->validate($request,[
-            'no'                => 'required',
-            'nama'              => 'required',
-            'jenkel'            => 'required',
-            'tpt_tgl_lhr'       => 'required',
-            'status'            => 'required',
-            'agama'             => 'required',
-            'pekerjaan'         => '',
-            'tgl_keluar'        => 'required',
+            'tgl_keluar'                => 'required',
+            'penduduk_id'                => 'required',
             ]);
      
         \App\Srt_ket_tdk_mampu::create($request->all());

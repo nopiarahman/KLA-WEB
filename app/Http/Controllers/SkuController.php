@@ -23,15 +23,13 @@ class SkuController extends Controller
     }
     public function simpan(Request $request)
     {
+        // dd($request);
         $validasi = $this->validate($request,[
-            'no'                => 'required',
-            'nama'              => 'required',
-            'tpt_tgl_lhr'       => 'required',
-            'jenkel'            => 'required',
-            'nik'               => 'required|unique:srt_ket_usahas,nik',
-            'pekerjaan'         => '',
-            'perihal'           => 'required',
-            'tgl_keluar'        => 'required',
+            'tgl_keluar'                => 'required',
+            'penduduk_id'                => 'required',
+            'resort'                => 'required',
+            'perihal'                => 'required',
+
             ]);
      
         \App\Srt_ket_usaha::create($request->all());

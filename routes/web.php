@@ -53,7 +53,9 @@ Route::group(['middleware' => ['web','auth']], function()
     Route::put('profil/update/{id}','ProfilController@update');
     Route::get('profil/hapus/{id}', 'ProfilController@hapus');
     Route::get('profil/cetak/{id}', 'ProfilController@cetak');
-
+    
+    // Pengajuan Admin
+    Route::get('/pengajuanAdmin', 'PengajuanController@pengajuan');
 
 
     //Penduduk
@@ -76,7 +78,7 @@ Route::group(['middleware' => ['web','auth']], function()
     
     //Surat Keterangan Biasa
 
-    Route::get('suketb','SuketbiasaController@index');
+    Route::get('suketb','SuketbiasaController@index')->name('skb');
     Route::get('suketb/tambah','SuketbiasaController@tambah');  
     Route::post('suketb/simpan','SuketbiasaController@simpan');
     Route::get('suketb/edit/{id}','SuketbiasaController@edit');  
@@ -86,17 +88,18 @@ Route::group(['middleware' => ['web','auth']], function()
 
     //Surat Keterangan Tidak Mampu
 
-    Route::get('sktm','SktmController@index');
+    Route::get('sktm','SktmController@index')->name('sktm');
     Route::get('sktm/tambah','SktmController@tambah');  
     Route::post('sktm/simpan','SktmController@simpan');
     Route::get('sktm/edit/{id}','SktmController@edit');  
     Route::put('sktm/update/{id}','SktmController@update');
     Route::get('sktm/hapus/{id}', 'SktmController@hapus');
+    Route::delete('hapusSKTM/{id}', 'SktmController@hapus');
     Route::get('sktm/cetak/{id}', 'SktmController@cetak');
 
     //Surat Keterangan Tidak Mampu
 
-    Route::get('sku','SkuController@index');
+    Route::get('sku','SkuController@index')->name('sku');
     Route::get('sku/tambah','SkuController@tambah');  
     Route::post('sku/simpan','SkuController@simpan');
     Route::get('sku/edit/{id}','SkuController@edit');  
@@ -134,10 +137,17 @@ Route::group(['middleware' => ['web','auth']], function()
     Route::put('sdsku/update/{id}','SdskuController@update');
    
     /* Penduduk */
+
+    Route::get('cariPenduduk','PendudukController@cariPenduduk');  
     Route::get('dataDiri','PendudukController@dataDiri');  
     Route::get('kartuKeluarga','PendudukController@kartuKeluarga')->name('kartuKeluarga');  
     Route::get('suratPendudukBaru','PengajuanController@suratPendudukBaru')->name('suratPendudukBaru');  
     Route::get('suratPendudukSelesai','PengajuanController@suratPendudukSelesai')->name('suratPendudukSelesai');  
+    Route::get('tambahPengajuan/{id}','PengajuanController@tambahPengajuan')->name('tambahPengajuan');  
+    Route::post('pengajuanSimpan/{id}','PengajuanController@pengajuanSimpan')->name('pengajuanSimpan');  
+    Route::get('lihatPengajuan/{id}','PengajuanController@lihatPengajuan')->name('lihatPengajuan');  
+    Route::post('terimaPengajuan/{id}','PengajuanController@terimaPengajuan')->name('terimaPengajuan');  
+    Route::delete('hapusPengajuan/{id}','PengajuanController@hapusPengajuan')->name('hapusPengajuan');  
 });
 
 

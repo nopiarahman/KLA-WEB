@@ -81,6 +81,12 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <li><a><i class="fa fa-table"></i> Pengajuan <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="/pengajuanAdmin"><i class="fa fa-user"></i> Surat </a>
+                                        </li>
+                                    </ul>
+                                </li>
                                 <li><a><i class="fa fa-table"></i> Surat <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="/suketb"><i class="fa fa-table"></i> Surat Keterangan Biasa </a>
@@ -157,6 +163,12 @@
                                         <li><a href="/sdpenduduk"><i class="fa fa-user"></i> Penduduk </a>
                                         </li>
                                         <li><a href="/sdkk"><i class="fa fa-table"></i> Kartu Keluarga </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-table"></i> Pengajuan <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="/pengajuanAdmin"><i class="fa fa-user"></i> Surat </a>
                                         </li>
                                     </ul>
                                 </li>

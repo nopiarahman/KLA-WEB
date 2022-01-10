@@ -129,4 +129,12 @@ class PendudukController extends Controller
         $id = kartuKeluarga::find($penduduks->first()->kartu_keluarga_id);
         return view('penduduk/kartuKeluarga',compact('id','penduduks'));        
     }
+    public function cariPenduduk(Request $request){
+        // dd($request);
+        if ($request->has('q')) {
+    	    $cari = $request->q;
+    		$data = penduduk::select('id', 'nik','nama')->where('nik', 'LIKE', '%'.$cari.'%')->get();
+    		return response()->json($data);
+    	}
+    }
 }
