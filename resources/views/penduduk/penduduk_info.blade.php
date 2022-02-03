@@ -65,6 +65,7 @@
                         {{ Form::radio('goldarah', 'B', false)}} B
                         {{ Form::radio('goldarah', 'AB', false)}} AB
                         {{ Form::radio('goldarah', 'O', false)}} O
+                        {{ Form::radio('goldarah', '-', false)}} Tidak Tahu
                         <span class="text-danger">{{ $errors->first('goldarah') }}</span>
                     </div>
                     <div class="form-group">

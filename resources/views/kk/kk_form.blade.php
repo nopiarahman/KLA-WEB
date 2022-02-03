@@ -35,28 +35,28 @@
                             <span class="text-danger">{{ $errors->first('dusun') }}</span>
                         </div>                        
                         <div class="form-group">
-                            {{Form::label('kelurahan', 'Kelurahan');}}
-                            {{ Form::text('kelurahan',null,array('class'=>'form-control')) }}
+                            {{Form::label('kelurahan', 'Desa');}}
+                            {{ Form::radio('kelurahan', 'Kasang Lopak Alai', false)}} Kasang Lopak Alai
                             <span class="text-danger">{{ $errors->first('dusun') }}</span>
                         </div>                        
                         <div class="form-group">
                             {{Form::label('kecamatan', 'Kecamatan');}}
-                            {{ Form::text('kecamatan',null,array('class'=>'form-control')) }}
+                            {{ Form::radio('kecamatan', 'Kumpeh Ulu', false)}} Kumpeh Ulu
                             <span class="text-danger">{{ $errors->first('dusun') }}</span>
                         </div>                        
                         <div class="form-group">
                             {{Form::label('kabupaten', 'Kabupaten');}}
-                            {{ Form::text('kabupaten',null,array('class'=>'form-control')) }}
+                            {{ Form::radio('kabupaten', 'Muaro Jambi', false)}} Muaro Jambi
                             <span class="text-danger">{{ $errors->first('dusun') }}</span>
                         </div>                        
                         <div class="form-group">
                             {{Form::label('kodePos', 'Kode Pos');}}
-                            {{ Form::text('kodePos',null,array('class'=>'form-control')) }}
+                            {{ Form::radio('kodePos', '36373', false)}} 36373
                             <span class="text-danger">{{ $errors->first('dusun') }}</span>
                         </div>                        
                         <div class="form-group">
                             {{Form::label('provinsi', 'Provinsi');}}
-                            {{ Form::text('provinsi',null,array('class'=>'form-control')) }}
+                            {{ Form::radio('provinsi', 'Jambi', false)}} Jambi
                             <span class="text-danger">{{ $errors->first('dusun') }}</span>
                         </div>                        
                         <a style="margin:15px;" class="fa fa-home"  href="{{  url('/kk') }}" class="btn btn-link"><font size="2">KEMBALI</font></a>

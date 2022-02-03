@@ -444,7 +444,7 @@
 
           </div>
 
-          <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
+          <!-- <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
 
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="form-row">
@@ -472,8 +472,9 @@
               </div>
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
+            -->
 
-          </div>
+          </div> 
 
         </div>
 
@@ -495,7 +496,7 @@
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
       <div class="copyright">
-        &copy; Copyright <strong><span>Selecao</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>Kasang Lopak Alai</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->

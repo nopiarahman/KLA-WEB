@@ -117,7 +117,7 @@
           var id = button.data('id') // Extract info from data-* attributes
           var nama = button.data('nama') 
           var modal = $(this)
-          modal.find('.modal-text').text('Yakin ingin menghapus penduduk atas nama ' + nama+' ?')
+          modal.find('.modal-text').text('Yakin ingin menghapus pengajuan ' + nama+' ?')
           document.getElementById('formHapus').action='/hapusPengajuan/'+id;
           })
         });

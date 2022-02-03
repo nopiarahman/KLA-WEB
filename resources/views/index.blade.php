@@ -136,7 +136,7 @@
 
         <div class="row content" data-aos="fade-up">
           <div class="col-lg-6">
-            <p>
+            <!-- <p>
               Sejarah desa Kasang Lopak Alai sebelum tahun 1982 adalah bagian dari desa Lopak Alai. Pada tahun 1982 desa Lopak Alai dimekarkan menjadi dua desa.
               Satu desa Lopak Alai yang pada waktu itu dipimpin oleh Datuk Usman Tholip, kemudian desaKasang Lopak Alai dipimpinOleh Datuk H.M Syafe’idengan Sekdesnya Bapak Kasim Inas dibantu oleh tiga orang kepala urusan yaitu:
             </p>
@@ -148,12 +148,36 @@
             </ul>
             <p>
               Kasang Lopak Alai pada waktuitu dibagi menjadi dua Dusun yaitu Dusun Air Mawar (Dusun I) dan Dusun Andil (Dusun II), Dusun Air Mawar dipimpin Oleh Bapak Warso dan Dusun Andil dipimpin Bapak Ngadirin, dan kemudian terdiri dari dua (2) RW dan 6 RT yang masing-masing RW membawahi beberapa RT.
-            </p>
-
-
+            </p> -->
+            <div class="card">
+            <div class="card-header">
+              Sejarah Desa
+            </div>
+            <div class="card-body">
+              <!-- <h5 class="card-title">Special title treatment</h5> -->
+              <p class="card-text">
+              {!! \Illuminate\Support\Str::limit($profil->first()->isi,200,$end="...") !!}
+              </p>
+              <a href="/sejarah" class="btn btn-primary">Lihat Selengkapnya</a>
+            </div>
+          </div>
+           
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
+           <div class="card">
+            <div class="card-header">
+              Geografis Desa
+            </div>
+            <div class="card-body">
+              <!-- <h5 class="card-title">Special title treatment</h5> -->
+              <p class="card-text">
+              {!! \Illuminate\Support\Str::limit($profil->last()->isi,200,$end="...") !!}
+              </p>
+              <a href="/geografis" class="btn btn-primary">Lihat Selengkapnya</a>
+            </div>
+          </div>
+<!--   
+          <p>
               Secara geografis desa Kasang Lopak Alai terletak di bagian selatan ibukota Kabupaten Muaro Jambi dengan luas wilayah lebih kurang 1.425 Ha Km2 dengan batas wilayah sebagai berikut:
             </p>
             <ul>
@@ -169,7 +193,7 @@
               <li><i></i> Tanah Sawah : ± 131 Ha </li>
               <li><i></i> Tanah Perkarangan : ± 650 Ha </li>
               <li><i></i> Tanah Perkebunan : ± 644 Ha </li>
-            </ul>
+            </ul> -->
 
           </div>
         </div>
@@ -187,55 +211,49 @@
           <p>Grafik Penduduk</p>
           
         </div>
-<a href="/grafik">
+        <!-- <div class="row portfolio-container" data-aos="fade-up"> -->
         <div class="row">
+          <div class="col-6">
+            <div id="chart" style="height: 300px;"></div>
+          </div>
+          <div class="col-6">
+            <div id="chartMenikah" style="height: 300px;"></div>
 
-          <!-- <div class="col-lg-4 col-md-6">
-            <div class="icon-box" data-aos="zoom-in-left">
-              <div class="icon"><i class="las la-basketball-ball" style="color: #ff689b;"></i></div>
-              <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-            </div>
           </div>
-          <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
-            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="100">
-              <div class="icon"><i class="las la-book" style="color: #e9bf06;"></i></div>
-              <h4 class="title"><a href="">Dolor Sitema</a></h4>
-              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mt-5 mt-lg-0 ">
-            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="200">
-              <div class="icon"><i class="las la-file-alt" style="color: #3fcdc7;"></i></div>
-              <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mt-5">
-            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="300">
-              <div class="icon"><i class="las la-tachometer-alt" style="color:#41cf2e;"></i></div>
-              <h4 class="title"><a href="">Magni Dolores</a></h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mt-5">
-            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="400">
-              <div class="icon"><i class="las la-globe-americas" style="color: #d6ff22;"></i></div>
-              <h4 class="title"><a href="">Nemo Enim</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mt-5">
-            <div class="icon-box" data-aos="zoom-in-left" data-aos-delay="500">
-              <div class="icon"><i class="las la-clock" style="color: #4680ff;"></i></div>
-              <h4 class="title"><a href="">Eiusmod Tempor</a></h4>
-              <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
-            </div>
-          </div> -->
         </div>
-</a>
+        <!-- Charting library -->
+    <script src="https://unpkg.com/echarts/dist/echarts.min.js"></script>
+    <!-- Chartisan -->
+    <script src="https://unpkg.com/@chartisan/echarts/dist/chartisan_echarts.js"></script>
+    <!-- Your application script -->
+    <script>
+      const chart = new Chartisan({
+        el: '#chart',
+        url: "@chart('home_chart')",
+        hooks: new ChartisanHooks()
+                  .tooltip()
+                  .colors(['#FF00FF', '#ECC94B'])
+                  // .responsive()
+                  // .beginAtZero()
+                  // .legend({ position: 'bottom' })
+                  .title('Jenis Kelamin')
+                  .datasets([{ type: 'bar'}]),
+      });
+    </script>
+    <script>
+      const chart2 = new Chartisan({
+        el: '#chartMenikah',
+        url: "@chart('menikah')",
+        hooks: new ChartisanHooks()
+                  .tooltip()
+                  .colors(['#ECC94B', '#4299E1','#8A2BE2','#8B008B'])
+                  // .responsive()
+                  // .beginAtZero()
+                  // .legend({ position: 'bottom' })
+                  .title('Status Pernikahan')
+                  .datasets([{ type: 'pie'}]),
+      });
+    </script>
       </div>
     </section><!-- End Services Section -->
 
@@ -253,11 +271,11 @@
 
           @forelse($berita as $b)
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-img"><img src="{{Storage::url($b->foto)}}" class="img-fluid" alt="" width="200px"></div>
+            <div class="portfolio-img"><img src="{{Storage::url($b->foto)}}" class="img-fluid" alt=""></div>
             <div class="portfolio-info">
               <h4>{{$b->judul}}</h4>
               <p>{{$b->tanggal}}</p>
-              <a href="portfolio-details.html" class="details-link" title="More Details"> Lihat Selengkapnya</a>
+              <a href="/berita/{{$b->id}}" class="details-link" title="More Details"> Lihat Selengkapnya</a>
             </div>
           </div>
           @empty
@@ -279,135 +297,20 @@
         </div>
 
         <div class="row">
-
+          @foreach($perangkat as $p)
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member" data-aos="fade-up">
               <div class="member-img">
-                <img src="/selecao/assets/img/team/isi.jpg" class="img-fluid" alt="">
+                <img src="{{Storage::url($p->foto)}}" class="img-fluid" alt=""  style="float:left; width:200px; height:300px; object-fit:cover;">
               </div>
               <div class="member-info">
-                <h4>PAWI</h4>
-                <span>KEPALA DESA</span>
+                <h4>{{$p->nama}}</h4>
+                <span>{{$p->jabatan}}</span>
               </br></br></br>
               </div>
             </div>
           </div>
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up" data-aos-delay="100">
-              <div class="member-img">
-                <img src="/selecao/assets/img/team/isi.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>TUGIMAN</h4>
-                <span>BPD</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up" data-aos-delay="200">
-              <div class="member-img">
-                <img src="/selecao/assets/img/team/isi.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>SARIMAN</h4>
-                <span>SEKERTARIS DESA</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up" data-aos-delay="300">
-              <div class="member-img">
-                <img src="/selecao/assets/img/team/isi.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>SULASTRI</h4>
-                <span>KEPALA SELEKSI PELAYANAN</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up" data-aos-delay="300">
-              <div class="member-img">
-                <img src="/selecao/assets/img/team/isi.jpg" class="img-fluid" alt="">
-</div>
-              <div class="member-info">
-                <h4>M. HADI KURNIA, S.P</h4>
-                <span>KEPALA SELEKSI KESEJATERAAN</span>
-              </br></br></br>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up" data-aos-delay="300">
-              <div class="member-img">
-                <img src="/selecao/assets/img/team/isi.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>HENDRA, S.Pd</h4>
-                <span>KEPALA SELEKSI KESEJATERAAN</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up" data-aos-delay="300">
-              <div class="member-img">
-                <img src="/selecao/assets/img/team/isi.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>FATIMAH</h4>
-                <span>KEPALA URUSAN KEUANGAN</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up" data-aos-delay="300">
-              <div class="member-img">
-                <img src="/selecao/assets/img/team/isi.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>KHAIRUL ANWAR.A</h4>
-                <span>KEPALA URUSAN UMUM</span>
-</div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up" data-aos-delay="300">
-              <div class="member-img">
-                <img src="/selecao/assets/img/team/isi.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>ADI</h4>
-                <span>KEPALA URUSAN PERENCANAAN</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up" data-aos-delay="300">
-              <div class="member-img">
-                <img src="/selecao/assets/img/team/isi.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>ARDI ARIPIN, S.Pd</h4>
-                <span>KADUS AIR MAWAR</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member" data-aos="fade-up" data-aos-delay="300">
-              <div class="member-img">
-                <img src="/selecao/assets/img/team/isi.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>JOKO PRIANTO, S.E</h4>
-                <span>KADUS ANDIL</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
+          @endforeach
       </div>
     </section><!-- End Team Section -->
 
@@ -415,11 +318,11 @@
     <section id="contact" class="contact">
       <div class="container">
 
-        <div class="section-title" data-aos="zoom-out">
+<!--        <div class="section-title" data-aos="zoom-out">
           <h2>Contact</h2>
           <p>Contact Us</p>
         </div>
-
+    -->
         <div class="row mt-5">
 
           <div class="col-lg-4" data-aos="fade-right">
@@ -446,7 +349,7 @@
 
           </div>
 
-          <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
+          <!-- <div class="col-lg-8 mt-5 mt-lg-0" data-aos="fade-left">
 
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="form-row">
@@ -475,7 +378,7 @@
               <div class="text-center"><button type="submit">Send Message</button></div>
             </form>
 
-          </div>
+          </div> -->
 
         </div>
 
@@ -497,7 +400,7 @@
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
       <div class="copyright">
-        &copy; Copyright <strong><span>Selecao</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>2021</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->

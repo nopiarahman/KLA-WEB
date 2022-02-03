@@ -63,8 +63,8 @@
                 <tr  >
                     <td><center>2</center></td>
                     <td><center>13</center></td>
-                    <td><center>{{ $penduduks->where('jenis_kelamin','LAKI-LAKI')->count() }}</center></td>
-                    <td><center>{{ $penduduks->where('jenis_kelamin','PEREMPUAN')->count() }}</center></td>
+                    <td><center>{{ $penduduks->where('jenis_kelamin','Laki-Laki')->count() }}</center></td>
+                    <td><center>{{ $penduduks->where('jenis_kelamin','Perempuan')->count() }}</center></td>
                     <td><center>{{ $penduduks->where('status','Kawin')->count() }}</center></td>
                     <td><center>{{ $penduduks->where('status','Belum Kawin')->count() }}</center></td>
                     <td><center>{{ $penduduks->where('kewarganegaraan','Warga Negara Indonesia')->count() }}</center></td>

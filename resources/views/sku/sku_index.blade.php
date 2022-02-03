@@ -33,8 +33,16 @@
                     <td><center>Rt. {{ $sku->penduduk->kartukeluarga->rt }}</center></td>
                     <td><center>{{ nomorSuratSKU($sku->id) }}</center></td>
                     <td><center>{{ $sku->tgl_keluar }}</center></td>
-                    {{-- <td><center><a href="{{ url('sku/edit/'.$sku->id) }}"><i class="fa fa-pencil-square-o"></i>Info Surat</center></td> --}}
-                    <td><center><a href="{{ url('sku/cetak/'.$sku->id) }}"><i class="fa fa-table"></i>Cetak Surat</center></td>
+                    <td>
+                    {{-- <center><a href="{{ url('sku/edit/'.$sku->id) }}"><i class="fa fa-pencil-square-o"></i>Info Surat</center> --}}
+                    <a href="{{ url('sku/cetak/'.$sku->id) }}"><i class="fa fa-table"></i>Cetak Surat</center></a>
+                            <button type="button" class="btn btn-sm btn-white text-danger border-danger" 
+                            data-toggle="modal" 
+                            data-target="#exampleModalCenter" 
+                            data-id="{{$sku->id}}" 
+                            data-nama="{{$sku->penduduk->nama}}">
+                            <i class="fa fa-trash" aria-hidden="true" ></i> Hapus</button>
+                </td>
                 </tr> 
             @endforeach   
  

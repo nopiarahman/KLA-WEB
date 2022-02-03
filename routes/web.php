@@ -12,14 +12,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\berita;
+use App\perangkat;
+use App\profil;
 Route::get('/', function () {	
     $berita=berita::all()->take(3);
-    // dd($berita);
-    return view('index',compact('berita'));
+    $profil = profil::all();
+    $perangkat = perangkat::all();
+    // dd($profil);
+    return view('index',compact('berita','profil','perangkat'));
 
 
 });
-
+Route::get('/sejarah','HomeController@sejarah');
+Route::get('/geografis','HomeController@geografis');
+Route::get('/berita/{id}','HomeController@berita');
 Auth::routes();
 
 Route::group(['middleware' => 'web'],function (){
@@ -36,6 +42,7 @@ Route::group(['middleware' => ['web','auth']], function()
         } else {
             return view('usersekdes');
         }
+
     });
 
 
@@ -44,6 +51,12 @@ Route::group(['middleware' => ['web','auth']], function()
     route::get('tambahBerita','BeritaController@create');
     route::post('beritaSimpan','BeritaController@simpan');
     route::get('hapusBerita/{id}','BeritaController@destroy');
+
+    //perangkat
+    route::get('perangkat','PerangkatController@index')->name('perangkat');
+    route::get('tambahPerangkat','PerangkatController@create');
+    route::post('perangkatSimpan','PerangkatController@simpan');
+    route::get('hapusPerangkat/{id}','PerangkatController@destroy');
     //Profil
 
     Route::get('profil','ProfilController@index');

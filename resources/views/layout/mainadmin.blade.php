@@ -73,6 +73,8 @@
                                 </li>
                                 <li><a href="/berita"><i class="fa fa-desktop"></i> Berita Desa</a>
                                 </li>
+                                <li><a href="/perangkat"><i class="fa fa-desktop"></i> Perangkat Desa</a>
+                                </li>
                                 <li><a><i class="fa fa-table"></i> Penduduk <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="/penduduk"><i class="fa fa-user"></i> Penduduk </a>

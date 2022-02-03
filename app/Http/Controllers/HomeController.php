@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\profil;
+use App\berita;
 
 class HomeController extends Controller
 {
@@ -24,5 +26,17 @@ class HomeController extends Controller
     public function index()
     {
         return view('useradmin');
+    }
+    public function sejarah(){
+        $profil = profil::first();
+        return view('sejarah',compact('profil'));
+    }
+    public function geografis(){
+        $profil = profil::all()->last();
+        return view('sejarah',compact('profil'));
+    }
+    public function berita(berita $id){
+        
+        return view('berita',compact('id'));
     }
 }

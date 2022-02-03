@@ -46,7 +46,13 @@
                     </div>
                     <div class="form-group">
                         {{Form::label('agama', 'Agama');}}
-                        {{Form::text('agama',null,array('class'=>'form-control')) }}
+                        {{ Form::radio('agama', 'Islam', false)}} Islam
+                        {{ Form::radio('agama', 'Kristen Protestan', false)}} Kristen Protestan                       
+                        {{ Form::radio('agama', 'Kristen Katolik', false)}} Kristen Katolik
+                        {{ Form::radio('agama', 'Hindu', false)}} Hindu
+                        {{ Form::radio('agama', 'Buddha', false)}} Buddha
+                        {{ Form::radio('agama', 'Khonghucu', false)}} Khonghucu
+
                         <span class="text-danger">{{ $errors->first('agama') }}</span>
                     </div>
                     <div class="form-group">
@@ -65,16 +71,26 @@
                         {{ Form::radio('goldarah', 'B', false)}} B
                         {{ Form::radio('goldarah', 'AB', false)}} AB
                         {{ Form::radio('goldarah', 'O', false)}} O
+                        {{ Form::radio('goldarah', '-', false)}} Tidak Tahu
                         <span class="text-danger">{{ $errors->first('goldarah') }}</span>
                     </div>
                     <div class="form-group">
                         {{Form::label('status', 'Status Pernikahan');}}
-                        {{Form::text('status',null,array('class'=>'form-control')) }}
+                        {{ Form::radio('status', 'Kawin', true)}} Kawin
+                        {{ Form::radio('status', 'Belum Kawin', false)}} Belum Kawin
+                        {{ Form::radio('status', 'Janda', false)}} Janda
+                        {{ Form::radio('status', 'Duda', false)}} Duda
                         <span class="text-danger">{{ $errors->first('status') }}</span>
                     </div>
                     <div class="form-group">
-                        {{Form::label('hubungan', 'Hubungan Dalam Keluarga');}}
-                        {{Form::text('hubungan',null,array('class'=>'form-control')) }}
+                        {{Form::label('hubungan', 'Hubungan Dalam Keluarga');}}                        
+                        {{ Form::radio('hubungan', 'Kepala Keluarga', true)}} Kepala Keluarga
+                        {{ Form::radio('hubungan', 'Istri', false)}} Istri
+                        {{ Form::radio('hubungan', 'Anak', false)}} Anak
+                        {{ Form::radio('hubungan', 'Cucu', false)}} Cucu
+                        {{ Form::radio('hubungan', 'Family Lain', false)}} Family Lain
+                        {{ Form::radio('hubungan', 'Orang Tua', false)}} Orang Tua
+                        
                         <span class="text-danger">{{ $errors->first('hubungan') }}</span>
                     </div>
                     <div class="form-group">

@@ -33,8 +33,16 @@
                     <td><center>Rt. {{ $suketb->penduduk->kartukeluarga->rt }}</center></td>
                     <td><center>{{ nomorSuratSKB($suketb->id) }}</center></td>
                     <td><center>{{ $suketb->tgl_keluar }}</center></td>
-                    {{-- <td><center><a href="{{ url('suketb/edit/'.$suketb->id) }}"><i class="fa fa-pencil-square-o"></i>Info Surat</center></td> --}}
-                    <td><center><a href="{{ url('suketb/cetak/'.$suketb->id) }}"><i class="fa fa-table"></i>Cetak Surat</center></td>
+                    <td>
+                    {{-- <center><a href="{{ url('suketb/edit/'.$suketb->id) }}"><i class="fa fa-pencil-square-o"></i>Info Surat</center> --}}
+                    <a href="{{ url('suketb/cetak/'.$suketb->id) }}"><i class="fa fa-table"></i>Cetak Surat</center>
+                        <button type="button" class="btn btn-sm btn-white text-danger border-danger" 
+                            data-toggle="modal" 
+                            data-target="#exampleModalCenter" 
+                            data-id="{{$suketb->id}}" 
+                            data-nama="{{$suketb->penduduk->nama}}">
+                            <i class="fa fa-trash" aria-hidden="true" ></i> Hapus</button> 
+                            </td>
                 </tr> 
             @endforeach   
  
