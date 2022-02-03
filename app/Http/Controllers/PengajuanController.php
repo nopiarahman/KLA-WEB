@@ -63,7 +63,7 @@ class PengajuanController extends Controller
             DB::commit();
             return redirect()->route('suratPendudukBaru')->with('status','Pengajuan Berhasil Disimpan');
         }  catch (\Exception $ex) {
-            dd($ex);
+            // dd($ex);
             DB::rollback();
             return redirect()->back()->with('error','Gagal. Pesan Error: '.$ex->getMessage());
         }
