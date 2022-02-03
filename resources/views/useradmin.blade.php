@@ -4,7 +4,7 @@
 
 @section('page')
 
-<div class="h1">SELAMAT DATANG, INI MERUPAKAN HALAMAN ADMIN.</div>
+<div class="h1">SELAMAT DATANG, {{auth()->user()->name}}</div>
                 
 
 @endsection 

@@ -77,7 +77,7 @@ class PengajuanController extends Controller
      */
     public function pengajuan()
     {
-        $pengajuan = pengajuan::where('status','baru')->get();
+        $pengajuan = pengajuan::all();
         return view('pengajuan/pengajuanAdmin',compact('pengajuan'));
     }
 
@@ -136,5 +136,10 @@ class PengajuanController extends Controller
             Srt_ket_biasa::create($requestData);
             return redirect()->route('skb')->with('status','Data Berhasil DiSimpan');
         }
+    }
+    public function tolakPengajuan(Request $request, pengajuan $id){
+        $id->update(['status'=>'ditolak']);
+        return redirect()->route('pengajuanAdmin')->with('status','Pengajuan Berhasil Ditolak');
+
     }
 }

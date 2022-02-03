@@ -68,7 +68,7 @@ Route::group(['middleware' => ['web','auth']], function()
     Route::get('profil/cetak/{id}', 'ProfilController@cetak');
     
     // Pengajuan Admin
-    Route::get('/pengajuanAdmin', 'PengajuanController@pengajuan');
+    Route::get('/pengajuanAdmin', 'PengajuanController@pengajuan')->name('pengajuanAdmin');
 
 
     //Penduduk
@@ -160,6 +160,7 @@ Route::group(['middleware' => ['web','auth']], function()
     Route::post('pengajuanSimpan/{id}','PengajuanController@pengajuanSimpan')->name('pengajuanSimpan');  
     Route::get('lihatPengajuan/{id}','PengajuanController@lihatPengajuan')->name('lihatPengajuan');  
     Route::post('terimaPengajuan/{id}','PengajuanController@terimaPengajuan')->name('terimaPengajuan');  
+    Route::get('tolakPengajuan/{id}','PengajuanController@tolakPengajuan')->name('tolakPengajuan');  
     Route::delete('hapusPengajuan/{id}','PengajuanController@hapusPengajuan')->name('hapusPengajuan');  
 });
 

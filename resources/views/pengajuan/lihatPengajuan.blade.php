@@ -8,6 +8,7 @@
             <div class="card">
                 <div class="card-header"><font size="4" color="black">PENGAJUAN SURAT</font></div>
                 <div class="card-body">
+                    {{-- <form action="{{route('tolakPengajuan',(['id'=>$id->id]))}}" method="post" enctype="multipart/form-data"> --}}
                     <div class="form-group">
                         {{Form::label('tanggal', 'Tanggal pengajuan');}}
                         {{Form::date('tanggal',$id->tanggal,array('class'=>'form-control')) }}
@@ -35,7 +36,7 @@
                         {{ Form::textarea('deskripsi',$id->deskripsi,array('class'=>'form-control')) }}
                         <span class="text-danger">{{ $errors->first('dusun') }}</span>
                     </div>
-                        <button style="float: right" type="submit" class="btn btn-danger">TOLAK PENGAJUAN</button>
+                        <a href="{{route('tolakPengajuan',(['id'=>$id->id]))}}" style="float: right" type="button" class="btn btn-danger">TOLAK PENGAJUAN</a>
                         <button style="float: right" type="button" class="btn btn-primary text-white" 
                         data-toggle="modal" 
                         data-target="#exampleModalCenter" 
@@ -44,6 +45,7 @@
                         <i class="fa fa-check" aria-hidden="true"></i> TERIMA PENGAJUAN</button>
 
                 </div>
+            {{-- </form> --}}
             </div>
         </div>
         <div class="col-md-12">
