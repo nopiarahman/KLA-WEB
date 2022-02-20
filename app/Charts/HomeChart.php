@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Charts;
 
@@ -8,6 +8,7 @@ use Chartisan\PHP\Chartisan;
 use ConsoleTVs\Charts\BaseChart;
 use Illuminate\Http\Request;
 use App\penduduk;
+
 class HomeChart extends BaseChart
 {
     /**
@@ -17,11 +18,11 @@ class HomeChart extends BaseChart
      */
     public function handler(Request $request): Chartisan
     {
-        $laki = penduduk::where('jenis_kelamin','Laki-Laki')->count();
-        $perempuan = penduduk::where('jenis_kelamin','Perempuan')->count();
+        $laki = penduduk::where('jenis_kelamin', 'Laki-Laki')->count();
+        $perempuan = penduduk::where('jenis_kelamin', 'Perempuan')->count();
         return Chartisan::build()
-            ->labels(['Laki-Laki', 'Perempuan'])
-            ->dataset('Jenis Kelamin', [$laki,$perempuan]);
-            // ->dataset('Perempuan', [$perempuan]);
+            ->labels(['Jenis Kelamin'])
+            ->dataset('Laki - Laki', [$laki])
+            ->dataset('Perempuan', [$perempuan]);
     }
 }

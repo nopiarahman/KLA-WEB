@@ -13,10 +13,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -27,16 +27,20 @@ class HomeController extends Controller
     {
         return view('useradmin');
     }
-    public function sejarah(){
+    public function sejarah(Request $request)
+    {
+        // dd($request);
         $profil = profil::first();
-        return view('sejarah',compact('profil'));
+        return view('sejarah', compact('profil'));
     }
-    public function geografis(){
+    public function geografis()
+    {
         $profil = profil::all()->last();
-        return view('sejarah',compact('profil'));
+        return view('sejarah', compact('profil'));
     }
-    public function berita(berita $id){
-        
-        return view('berita',compact('id'));
+    public function berita(berita $id)
+    {
+
+        return view('berita', compact('id'));
     }
 }
