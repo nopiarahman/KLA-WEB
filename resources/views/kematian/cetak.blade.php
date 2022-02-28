@@ -356,7 +356,7 @@
         <div style="position:absolute;left:450.50px;top:429.15px" class="cls_004"><span
                 class="cls_004">Kepala Desa Kasang Lopak Alai</span></div>
         <div style="position:absolute;left:101.62px;top:440.95px" class="cls_004"><span
-                class="cls_004">Kasang Lopak Alai, 30 Sept 2021</span></div>
+                class="cls_004">Kasang Lopak Alai, {{ formatTanggal($sk->tanggalKeluar) }}</span></div>
         <div style="position:absolute;left:101.62px;top:463.75px" class="cls_004"><span
                 class="cls_004">Kepala Desa Kasang Lopak Alai</span></div>
         <div style="position:absolute;left:793.17px;top:478.95px" class="cls_003"><span
