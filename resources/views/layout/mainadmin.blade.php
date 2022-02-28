@@ -12,7 +12,7 @@
     <title>@yield('titleadmin')</title>
     @yield('head')
     <!-- Bootstrap -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <link href="/admin/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -59,80 +59,92 @@
                     <br />
                     @auth
                         @if (Auth::user()->admin == 0 && Auth::user()->role == 'admin')
+                            <!-- sidebar menu -->
+                            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                                <div class="menu_section">
+                                    </li>&nbsp; &nbsp; &nbsp;
+
+
+                                    <h3>ADMIN</h3>
+                                    <ul class="nav side-menu">
+                                        <li><a href="/home"><i class="fa fa-home"></i> Home </a>
+                                        </li>
+                                        <li><a href="/profil"><i class="fa fa-pencil-square-o"></i> Profil Desa</a>
+                                        </li>
+                                        <li><a href="/berita"><i class="fa fa-desktop"></i> Berita Desa</a>
+                                        </li>
+                                        <li><a href="/perangkat"><i class="fa fa-desktop"></i> Perangkat Desa</a>
+                                        </li>
+                                        <li><a><i class="fa fa-table"></i> Penduduk <span
+                                                    class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="/penduduk"><i class="fa fa-user"></i> Penduduk </a>
+                                                </li>
+                                                <li><a href="/kk"><i class="fa fa-table"></i> Kartu Keluarga </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a><i class="fa fa-table"></i> Pengajuan <span
+                                                    class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="/pengajuanAdmin"><i class="fa fa-user"></i> Surat </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a><i class="fa fa-table"></i> Surat <span
+                                                    class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="/suketb"><i class="fa fa-table"></i> Surat Keterangan Biasa
+                                                    </a>
+                                                </li>
+                                                <li><a href="/sktm"><i class="fa fa-table"></i> Surat Keterangan Tidak
+                                                        Mampu </a>
+                                                </li>
+                                                <li><a href="/sku"><i class="fa fa-table"></i> Surat Keterangan Usaha
+                                                    </a>
+                                                </li>
+                                                <li><a href="/suratKematian"><i class="fa fa-table"></i> Surat Kematian
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li><a><i class="fa fa-clone"></i>Laporan <span
+                                                    class="fa fa-chevron-down"></span></a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="/lpenduduk">Laporan Penduduk</a></li>
+                                                <li><a href="/lsurat">Laporan Surat Keterangan</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                    </div>
+                    <!-- /sidebar menu -->
+
+                @elseif (Auth::user()->role == 'penduduk')
                     <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                        <div class="menu_section"> 
-                    </li>&nbsp; &nbsp; &nbsp;
+                        <div class="menu_section">
+                            </li>&nbsp; &nbsp; &nbsp;
 
 
-                            <h3>ADMIN</h3>
+                            <h3>PENDUDUK</h3>
                             <ul class="nav side-menu">
                                 <li><a href="/home"><i class="fa fa-home"></i> Home </a>
                                 </li>
-                                <li><a href="/profil"><i class="fa fa-pencil-square-o"></i> Profil Desa</a>
-                                </li>
-                                <li><a href="/berita"><i class="fa fa-desktop"></i> Berita Desa</a>
-                                </li>
-                                <li><a href="/perangkat"><i class="fa fa-desktop"></i> Perangkat Desa</a>
-                                </li>
-                                <li><a><i class="fa fa-table"></i> Penduduk <span class="fa fa-chevron-down"></span></a>
+                                <li><a><i class="fa fa-table"></i> Data Penduduk <span
+                                            class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="/penduduk"><i class="fa fa-user"></i> Penduduk </a>
+                                        <li><a href="/dataDiri"><i class="fa fa-user"></i> Data Diri </a>
                                         </li>
-                                        <li><a href="/kk"><i class="fa fa-table"></i> Kartu Keluarga </a>
+                                        <li><a href="{{ route('kartuKeluarga') }}"><i class="fa fa-table"></i> Kartu
+                                                Keluarga </a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-table"></i> Pengajuan <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="/pengajuanAdmin"><i class="fa fa-user"></i> Surat </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-table"></i> Surat <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="/suketb"><i class="fa fa-table"></i> Surat Keterangan Biasa </a>
-                                        </li>
-                                        <li><a href="/sktm"><i class="fa fa-table"></i> Surat Keterangan Tidak Mampu </a>
-                                        </li>
-                                        <li><a href="/sku"><i class="fa fa-table"></i> Surat Keterangan Usaha </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-clone"></i>Laporan <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="/lpenduduk">Laporan Penduduk</a></li>
-                                        <li><a href="/lsurat">Laporan Surat Keterangan</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- /sidebar menu -->
-
-                @elseif (Auth::user()->role == 'penduduk')
-                <!-- sidebar menu -->
-                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                    <div class="menu_section"> 
-                </li>&nbsp; &nbsp; &nbsp;
-
-
-                        <h3>PENDUDUK</h3>
-                        <ul class="nav side-menu">
-                            <li><a href="/home"><i class="fa fa-home"></i> Home </a>
-                            </li>
-                            <li><a><i class="fa fa-table"></i> Data Penduduk <span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="/dataDiri"><i class="fa fa-user"></i> Data Diri </a>
-                                    </li>
-                                    <li><a href="{{route('kartuKeluarga')}}"><i class="fa fa-table"></i> Kartu Keluarga </a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="{{route('suratPendudukBaru')}}"> <i class="fa fa-envelope"></i> Pengajuan Surat </a>
-{{-- 
-                            <li><a><i class="fa fa-table"></i> Permintaan Surat <span class="fa fa-chevron-down"></span></a>
+                                <li><a href="{{ route('suratPendudukBaru') }}"> <i class="fa fa-envelope"></i> Pengajuan
+                                        Surat </a>
+                                    {{-- <li><a><i class="fa fa-table"></i> Permintaan Surat <span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="{{route('suratPendudukBaru')}}"><i class="fa fa-table"></i>Baru</a>
                                     </li>
@@ -140,67 +152,65 @@
                                     </li>
                                 </ul>
                             </li> --}}
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <!-- /sidebar menu -->
-                @elseif (Auth::user()->role == 'sekdes')
-                <!-- sidebar menu -->
-                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-                        <div class="menu_section"> 
-                    </li>&nbsp; &nbsp; &nbsp;
-
-
-                            <h3>SEKDES</h3>
-                            <ul class="nav side-menu">
-                                <li><a href="/home"><i class="fa fa-home"></i> Home </a>
-                                </li>
-                                <!--<li><a href="/profil"><i class="fa fa-pencil-square-o"></i> Profil Desa</a>
-                                </li>
-                                <li><a href="/berita"><i class="fa fa-desktop"></i> Berita Desa</a>
-                                </li>-->
-                                <li><a><i class="fa fa-table"></i> Penduduk <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="/sdpenduduk"><i class="fa fa-user"></i> Penduduk </a>
-                                        </li>
-                                        <li><a href="/sdkk"><i class="fa fa-table"></i> Kartu Keluarga </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-table"></i> Pengajuan <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="/pengajuanAdmin"><i class="fa fa-user"></i> Surat </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-table"></i> Surat <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="/sdskb"><i class="fa fa-table"></i> Surat Keterangan Biasa </a>
-                                        </li>
-                                        <li><a href="/sdsktm"><i class="fa fa-table"></i> Surat Keterangan Tidak Mampu </a>
-                                        </li>
-                                        <li><a href="/sdsku"><i class="fa fa-table"></i> Surat Keterangan Usaha </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li><a><i class="fa fa-clone"></i>Laporan <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li><a href="/lpenduduk">Laporan Penduduk</a></li>
-                                        <li><a href="/lsurat">Laporan Surat Keterangan</a></li>
-                                    </ul>
-                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <!-- /sidebar menu -->
+            @elseif (Auth::user()->role == 'sekdes')
+                <!-- sidebar menu -->
+                <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                    <div class="menu_section">
+                        </li>&nbsp; &nbsp; &nbsp;
 
 
-                 @endif
-                @endauth
+                        <h3>SEKDES</h3>
+                        <ul class="nav side-menu">
+                            <li><a href="/home"><i class="fa fa-home"></i> Home </a>
+                            </li>
+                            <!--<li><a href="/profil"><i class="fa fa-pencil-square-o"></i> Profil Desa</a>
+                                        </li>
+                                        <li><a href="/berita"><i class="fa fa-desktop"></i> Berita Desa</a>
+                                        </li>-->
+                            <li><a><i class="fa fa-table"></i> Penduduk <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="/sdpenduduk"><i class="fa fa-user"></i> Penduduk </a>
+                                    </li>
+                                    <li><a href="/sdkk"><i class="fa fa-table"></i> Kartu Keluarga </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-table"></i> Pengajuan <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="/pengajuanAdmin"><i class="fa fa-user"></i> Surat </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-table"></i> Surat <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="/sdskb"><i class="fa fa-table"></i> Surat Keterangan Biasa </a>
+                                    </li>
+                                    <li><a href="/sdsktm"><i class="fa fa-table"></i> Surat Keterangan Tidak Mampu </a>
+                                    </li>
+                                    <li><a href="/sdsku"><i class="fa fa-table"></i> Surat Keterangan Usaha </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-clone"></i>Laporan <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="/lpenduduk">Laporan Penduduk</a></li>
+                                    <li><a href="/lsurat">Laporan Surat Keterangan</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- /sidebar menu -->
+            @endif
+        @endauth
 
-                <!-- /menu footer buttons 
+        <!-- /menu footer buttons
                <div class="sidebar-footer hidden-small">
                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -208,66 +218,66 @@
                                         {{ __('Logout') }}
                                     </a>
                 </div>-->
-                <!-- /menu footer buttons -->
-            </div>
-        </div>
+        <!-- /menu footer buttons -->
+    </div>
+    </div>
 
-        <!-- top navigation -->
-        <div class="top_nav">
-            <div class="nav_menu">
-                <div class="nav toggle">
-                    <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-                </div>
-                <nav class="nav navbar-nav">
-                    <ul class=" navbar-right">
-                        <li class="nav-item dropdown open" style="padding-left: 15px;">
-                            <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
-                                id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                                <img src="/logo/profil.png" alt="">{{ Auth::user()->name }}
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
+    <!-- top navigation -->
+    <div class="top_nav">
+        <div class="nav_menu">
+            <div class="nav toggle">
+                <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+            <nav class="nav navbar-nav">
+                <ul class=" navbar-right">
+                    <li class="nav-item dropdown open" style="padding-left: 15px;">
+                        <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
+                            id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                            <img src="/logo/profil.png" alt="">{{ Auth::user()->name }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        <i class="fa fa-sign-out pull-right"></i >{{ __('Logout') }}
-                                    </a>
+                                <i class="fa fa-sign-out pull-right"></i>{{ __('Logout') }}
+                            </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
         </div>
-        <!-- /top navigation -->
+    </div>
+    <!-- /top navigation -->
 
-        <!-- page content -->
-        <div class="right_col" role="main">
+    <!-- page content -->
+    <div class="right_col" role="main">
 
-            <main class="py-4">
-            @if(Session::has('pesan'))
-            <div class="alert alert-info alert-dismissible">
-            <a href="#" class="close" data-dismiss="alert">&times;</a>
-            {{ Session::get('pesan') }}
-            </div>
+        <main class="py-4">
+            @if (Session::has('pesan'))
+                <div class="alert alert-info alert-dismissible">
+                    <a href="#" class="close" data-dismiss="alert">&times;</a>
+                    {{ Session::get('pesan') }}
+                </div>
             @endif
             @yield('page')
         </main>
 
-            <!-- /page content -->
+        <!-- /page content -->
+    </div>
+
+
+    <!-- footer content -->
+    <footer>
+        <div class="pull-right">
+            Kasang Lopak Alai - Sistem Administrasi Pelayanan
         </div>
-
-
-        <!-- footer content -->
-        <footer>
-            <div class="pull-right">
-                Kasang Lopak Alai - Sistem Administrasi Pelayanan
-            </div>
-            <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
+        <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
     </div>
     </div>
 

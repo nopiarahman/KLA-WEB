@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Penduduk extends Model
 {
-    protected $table = "penduduks"; 
-    protected $guarded = ['id','created_at','updated_at'];
-    
+    protected $table = "penduduks";
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
     /**
      * Get the kartuKeluarga that owns the Penduduk
      *
@@ -52,5 +52,14 @@ class Penduduk extends Model
     public function Srt_ket_usaha()
     {
         return $this->hasOne(Srt_ket_usaha::class);
+    }
+    /**
+     * Get the suratKematian associated with the Penduduk
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function suratKematian()
+    {
+        return $this->hasOne(suratKematian::class);
     }
 }

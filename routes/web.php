@@ -120,6 +120,13 @@ Route::group(['middleware' => ['web', 'auth']], function () {
     Route::get('sku/hapus/{id}', 'SkuController@hapus');
     Route::get('sku/cetak/{id}', 'SkuController@cetak');
 
+
+    Route::get('suratKematian', 'SuratKematianController@index')->name('suratKematian');
+    Route::get('kematian/tambah', 'SuratKematianController@create');
+    Route::post('kematian/simpan', 'SuratKematianController@simpan');
+    Route::get('kematian/cetak/{id}', 'SuratKematianController@cetak');
+    Route::delete('kematian/hapus/{id}', 'SuratKematianController@destroy');
+
     //#LAPORAN
     //Penduduk
     Route::get('lpenduduk', 'lpendudukController@index');
